@@ -14,6 +14,6 @@ import java.util.Optional;
 public class BaseResponse<T> {
     private Integer code;
     private String message;
-    private Optional<T> objeto;
+    private Optional<T> entidad;
 }
 

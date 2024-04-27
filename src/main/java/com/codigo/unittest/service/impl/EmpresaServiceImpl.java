@@ -78,11 +78,12 @@ public class EmpresaServiceImpl implements EmpresaService {
         if(empresaBuscar.isPresent()){
             baseResponse.setCode(Constants.CODE_OK);
             baseResponse.setMessage(Constants.MSJ_OK);
-            baseResponse.setObjeto(empresaBuscar);
+            baseResponse.setEntidad(empresaBuscar);
         }else{
+            empresaBuscar.get().getRazonSocial();
             baseResponse.setCode(Constants.CODE_EMPRESA_NO_EXIST);
             baseResponse.setMessage(Constants.MSJ_EMPRESA_NO_EXIST);
-            baseResponse.setObjeto(Optional.empty());
+            baseResponse.setEntidad(Optional.empty());
         }
         return ResponseEntity.ok(baseResponse);
     }
@@ -95,11 +96,11 @@ public class EmpresaServiceImpl implements EmpresaService {
         if(!listEmpresa.isEmpty()){
             baseResponse.setCode(Constants.CODE_OK);
             baseResponse.setMessage(Constants.MSJ_OK);
-            baseResponse.setObjeto(Optional.of(listEmpresa));
+            baseResponse.setEntidad(Optional.of(listEmpresa));
         }else {
             baseResponse.setCode(Constants.CODE_EMPRESA_NO_EXIST);
             baseResponse.setMessage(Constants.MSJ_EMPRESA_NO_EXIST);
-            baseResponse.setObjeto(Optional.empty());
+            baseResponse.setEntidad(Optional.empty());
         }
         return ResponseEntity.ok(baseResponse);
     }
@@ -112,11 +113,11 @@ public class EmpresaServiceImpl implements EmpresaService {
             Empresa actualizar = getEntityUpdate(requestPersona,empresaRecuperada);
             baseResponse.setCode(Constants.CODE_OK);
             baseResponse.setMessage(Constants.MSJ_OK);
-            baseResponse.setObjeto(Optional.of(empresaRepository.save(actualizar)));
+            baseResponse.setEntidad(Optional.of(empresaRepository.save(actualizar)));
         }else{
             baseResponse.setCode(Constants.CODE_EMPRESA_NO_EXIST);
             baseResponse.setMessage(Constants.MSJ_EMPRESA_NO_EXIST);
-            baseResponse.setObjeto(Optional.empty());
+            baseResponse.setEntidad(Optional.empty());
         }
         return ResponseEntity.ok(baseResponse);
     }
@@ -133,11 +134,11 @@ public class EmpresaServiceImpl implements EmpresaService {
             //Response
             baseResponse.setCode(Constants.CODE_OK);
             baseResponse.setMessage(Constants.MSJ_OK);
-            baseResponse.setObjeto(Optional.of(empresaRepository.save(empresaRecuperada)));
+            baseResponse.setEntidad(Optional.of(empresaRepository.save(empresaRecuperada)));
         }else{
             baseResponse.setCode(Constants.CODE_EMPRESA_NO_EXIST);
             baseResponse.setMessage(Constants.MSJ_EMPRESA_NO_EXIST);
-            baseResponse.setObjeto(Optional.empty());
+            baseResponse.setEntidad(Optional.empty());
         }
         return ResponseEntity.ok(baseResponse);
     }

@@ -16,7 +16,6 @@ public class EmpresaController {
 
     private final EmpresaService service;
 
-
     @PostMapping
     public ResponseEntity<BaseResponse> registrar(@RequestBody EmpresaRequest empresaRequest){
         return service.crear(empresaRequest);
