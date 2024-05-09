@@ -80,7 +80,7 @@ public class EmpresaServiceImpl implements EmpresaService {
             baseResponse.setMessage(Constants.MSJ_OK);
             baseResponse.setEntidad(empresaBuscar);
         }else{
-            empresaBuscar.get().getRazonSocial();
+          //  empresaBuscar.get().getRazonSocial();
             baseResponse.setCode(Constants.CODE_EMPRESA_NO_EXIST);
             baseResponse.setMessage(Constants.MSJ_EMPRESA_NO_EXIST);
             baseResponse.setEntidad(Optional.empty());
