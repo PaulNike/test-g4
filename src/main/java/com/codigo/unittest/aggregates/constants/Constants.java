@@ -15,4 +15,5 @@ public class Constants {
     public static final String MSJ_EMPRESA_NO_EXIST="No hay datos";
 
     public static final boolean AGENTE_RETENCION_TRUE = true;
+    public static final boolean AGENTE_RETENCION_FALSE = false;
 }
