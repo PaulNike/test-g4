@@ -25,12 +25,10 @@ public class EmpresaServiceImpl implements EmpresaService {
     public ResponseEntity<BaseResponse> crear(EmpresaRequest request) {
         boolean exist = empresaRepository.existsByNumeroDocumento(request.getNumeroDocumento());
         if(exist){
-            BaseResponse response = new BaseResponse(Constants.CODE_EXIST,Constants.MSJ_EXIST, Optional.empty());
-            return ResponseEntity.ok(response);
+            return ResponseEntity.ok(new BaseResponse<Empresa>(Constants.CODE_EXIST,Constants.MSJ_EXIST, new Empresa()));
         }else{
             Empresa empresaGuardar = empresaRepository.save(getEntity(request));
-            BaseResponse response = new BaseResponse(Constants.CODE_OK,Constants.MSJ_OK, Optional.of(empresaGuardar));
-            return ResponseEntity.ok(response);
+            return ResponseEntity.ok(new BaseResponse<Empresa>(Constants.CODE_OK,Constants.MSJ_OK, empresaGuardar));
         }
     }
 
