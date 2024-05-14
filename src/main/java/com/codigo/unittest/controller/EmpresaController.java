@@ -2,6 +2,8 @@ package com.codigo.unittest.controller;
 
 import com.codigo.unittest.aggregates.request.EmpresaRequest;
 import com.codigo.unittest.aggregates.response.BaseResponse;
+import com.codigo.unittest.aggregates.response.Persona;
+import com.codigo.unittest.service.ClientPrueba;
 import com.codigo.unittest.service.EmpresaService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ public class EmpresaController {
 
 
     private final EmpresaService service;
+    private final ClientPrueba clientPrueba;
 
     @PostMapping
     public ResponseEntity<BaseResponse> registrar(@RequestBody EmpresaRequest empresaRequest){
@@ -36,4 +39,9 @@ public class EmpresaController {
         return service.actualizar(id,request);
 
     }
+    @GetMapping("/prueba")
+    public ResponseEntity<Persona> getPersona(){
+        return ResponseEntity.ok(clientPrueba.getInfoPersona());
+    }
+
 }
