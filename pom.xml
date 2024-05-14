@@ -16,6 +16,10 @@
 	<properties>
 		<java.version>17</java.version>
 		<sonar.coverage.exclusions>**/com/codigo/unittest/controller/**</sonar.coverage.exclusions>
+		<sonar.host.url>http://localhost:9000/</sonar.host.url>
+		<sonar.login>sqp_d7ab2189f55da87f54d9aac8281a43522dbc84cd</sonar.login>
+		<sonar.projectKey>prueba2</sonar.projectKey>
+		<sonar.projectName>prueba2</sonar.projectName>
 	</properties>
 	<dependencies>
 		<dependency>
